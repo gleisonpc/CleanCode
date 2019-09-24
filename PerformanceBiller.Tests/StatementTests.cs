@@ -5,7 +5,7 @@ using Xunit;
 
 namespace PerformanceBiller.Tests
 {
-    public class StatementTests
+    public class StatementTests 
     {
         [Fact]
         public void Statement_can_run()
@@ -23,7 +23,8 @@ namespace PerformanceBiller.Tests
             using (var invoicesReader = new JsonTextReader(invoicesFile))
             using (var playsFile = File.OpenText("..\\..\\..\\plays.json"))
             using (var playsReader = new JsonTextReader(playsFile)) {
-                var invoices = (JArray) JToken.ReadFrom(invoicesReader);
+                // var invoices = (JArray) JToken.ReadFrom(invoicesReader);
+                var invoices = (InvoiceModel)JToken.ReadFrom(invoicesReader);
 
                 var invoice = (JObject) invoices.First;
 
